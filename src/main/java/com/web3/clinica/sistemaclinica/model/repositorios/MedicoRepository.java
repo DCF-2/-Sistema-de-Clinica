@@ -31,6 +31,9 @@ public class MedicoRepository {
                 mAux.setEspecialidade(m.getEspecialidade());
                 mAux.setContato(m.getContato());
                 
+                if(m.getSenha() != null && !m.getSenha().isEmpty()){
+                    mAux.setSenha(m.getSenha());
+                }
                 return;
             }
         }
@@ -57,6 +60,20 @@ public class MedicoRepository {
         }
         
     }
+    public static Medico login(String crm, String senha) {
+        if (crm == null || senha == null) {
+            return null;
+        }
+        
+        for (Medico m : medicos) {
+            
+            if (crm.equals(m.getCrm()) && senha.equals(m.getSenha())) {
+                return m;
+            }
+        }
+        return null; 
+    }
+    
      public List<Medico> listar() {
         return MedicoRepository.lerTudo();
     }

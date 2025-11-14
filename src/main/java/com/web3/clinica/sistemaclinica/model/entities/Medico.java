@@ -14,6 +14,16 @@ public class Medico {
     private String nome;
     private String especialidade;
     private String contato;
+    private String senha;
+    
+    
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 
     public String getCrm() {
         return crm;
