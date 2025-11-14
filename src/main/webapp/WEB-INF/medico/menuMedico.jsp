@@ -19,7 +19,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="${pageContext.request.contextPath}/Consultas">Home (Consultas)</a>
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/Consultas">Home</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -28,6 +28,11 @@
                 <li class="nav-item">
                     <%-- Link para o CRUD Admin de Pacientes (Portal Admin) --%>
                     <a class="nav-link" href="${pageContext.request.contextPath}/Paciente">Gerir Pacientes</a>
+                </li>
+
+                <%-- --- ADICIONE ESTA LINHA --- --%>
+                <li class="nav-item">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/Consultas?op=historico">Histórico (Prontuários)</a>
                 </li>
             </ul>
             <div class="d-flex">

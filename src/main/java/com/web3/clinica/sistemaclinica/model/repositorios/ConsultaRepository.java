@@ -55,6 +55,19 @@ public class ConsultaRepository {
         }
         return consultasDoMedico;
     }
+    
+    public static List<Consulta> listarPorMedicoComProntuario(String crmMedico) {
+        List<Consulta> historico = new ArrayList<>();
+
+        for (Consulta c : consultas) {
+            // 1. A consulta é deste médico?
+            // 2. A consulta JÁ TEM prontuário?
+            if (c.getMedico().getCrm().equals(crmMedico) && c.getProntuario() != null) {
+                historico.add(c);
+            }
+        }
+        return historico;
+    }
 
     
     public static Consulta buscarPorCodigo(int codigo) {

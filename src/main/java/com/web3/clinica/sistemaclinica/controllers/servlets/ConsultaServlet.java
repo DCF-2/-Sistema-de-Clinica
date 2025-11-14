@@ -9,8 +9,9 @@ import com.web3.clinica.sistemaclinica.model.entities.Medico;
 import com.web3.clinica.sistemaclinica.model.entities.Paciente;
 import com.web3.clinica.sistemaclinica.model.negocios.ConsultaNegocio;
 import com.web3.clinica.sistemaclinica.model.repositorios.PacienteRepository;
+import com.web3.clinica.sistemaclinica.model.entities.Prontuario;
+
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -47,6 +48,44 @@ public class ConsultaServlet extends HttpServlet {
             session.setAttribute("msg", "Você precisa estar logado para ver suas consultas.");
             response.sendRedirect("LoginMedico.jsp");
             return;
+        }
+        
+        String op = request.getParameter("op");
+
+        // FLUXO PARA ATENDIMENTO (TAREFA 4)
+        if ("atender".equals(op)) {
+            try {
+                int idConsulta = Integer.parseInt(request.getParameter("id"));
+                Consulta consulta = consultaNegocio.buscarPorCodigo(idConsulta);
+                
+                // Medida de segurança: verifica se a consulta é mesmo deste médico
+                if (consulta == null || !consulta.getMedico().getCrm().equals(medicoLogado.getCrm())) {
+                    throw new Exception("Consulta não encontrada ou não pertence a este médico.");
+                }
+
+                request.setAttribute("consultaParaAtender", consulta);
+                // Vamos criar este JSP no próximo passo
+                request.getRequestDispatcher("/WEB-INF/medico/Atendimento.jsp").forward(request, response);
+                
+            } catch (Exception e) {
+                session.setAttribute("msg", "Erro ao buscar consulta: " + e.getMessage());
+                response.sendRedirect("Consultas");
+            }
+            return; // Importante: 'return' para parar aqui
+        }else if ("historico".equals(op)) {
+            try {
+                // 1. Busca o histórico (consultas COM prontuário)
+                List<Consulta> historico = consultaNegocio.listarPorMedicoComProntuario(medicoLogado.getCrm());
+                request.setAttribute("listaHistorico", historico);
+                
+                // 2. Encaminha para o novo JSP (que criaremos a seguir)
+                request.getRequestDispatcher("/WEB-INF//medico/Historico.jsp").forward(request, response);
+
+            } catch (ServletException | IOException e) {
+                session.setAttribute("msg", "Erro ao carregar histórico: " + e.getMessage());
+                response.sendRedirect("Consultas"); // Volta p/ dashboard
+            }
+            return; // Importante: 'return' para parar aqui
         }
 
         // 2. BUSCAR DADOS PARA O DASHBOARD
@@ -122,9 +161,36 @@ public class ConsultaServlet extends HttpServlet {
                 // Se o ConsultaNegocio der 'throw', captura aqui
                 session.setAttribute("msg", "Erro ao agendar: " + e.getMessage());
             }
+        }else if ("salvarProntuario".equals(op)) {
+            try {
+                // 1. Pegar os dados do formulário Atendimento.jsp
+                int idConsulta = Integer.parseInt(request.getParameter("idConsulta"));
+                String desc = request.getParameter("prontuarioDescricao");
+                String obs = request.getParameter("prontuarioObservacao");
+
+                // 2. Criar o objeto Prontuario (conforme diagrama)
+                Prontuario p = new Prontuario();
+                p.setDescricao(desc);
+                p.setObservacao(obs);
+                // (Vamos assumir que o ProntuarioRepository não é necessário
+                // e que o objeto Prontuario "vive" dentro da Consulta)
+                
+                // 3. Buscar a consulta original
+                Consulta consulta = consultaNegocio.buscarPorCodigo(idConsulta);
+                
+                // 4. Linkar o prontuário à consulta
+                consulta.setProntuario(p);
+                
+                // 5. Salvar a atualização
+                // (O ConsultaNegocio já tem a validação que impede descrição vazia)
+                consultaNegocio.atualizar(consulta);
+                
+                session.setAttribute("msg", "Atendimento finalizado e prontuário salvo!");
+
+            } catch (Exception e) {
+                session.setAttribute("msg", "Erro ao salvar prontuário: " + e.getMessage());
+            }
         }
-        
-        // (A Lógica da Tarefa 4 (Prontuário) virá aqui depois, com op="atender")
 
         // No fim, sempre redireciona para o doGet (para atualizar a lista)
         response.sendRedirect("Consultas");

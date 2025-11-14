@@ -23,7 +23,7 @@ import java.io.IOException;
 public class LoginMedicoServlet extends HttpServlet {
 
     
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -35,6 +35,18 @@ public class LoginMedicoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String op = request.getParameter("op");
+        
+        if ("logout".equals(op)) {
+            HttpSession session = request.getSession(false); // Pega a sessão sem criar uma nova
+            if (session != null) {
+                session.removeAttribute("medicoLogado"); // Remove o médico
+                session.invalidate(); // Destrói a sessão
+            }
+            response.sendRedirect("LoginMedico.jsp"); // Manda para a página de login
+            return; // Para a execução aqui
+        }
+        
                 response.sendRedirect("LoginMedico.jsp");
     }
 

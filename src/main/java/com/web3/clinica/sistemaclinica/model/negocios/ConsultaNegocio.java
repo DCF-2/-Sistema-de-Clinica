@@ -54,6 +54,10 @@ public class ConsultaNegocio {
     public List<Consulta> listarPorMedicoSemProntuario(String crmMedico) {
         return ConsultaRepository.listarPorMedicoSemProntuario(crmMedico);
     }
+    
+    public List<Consulta> listarPorMedicoComProntuario(String crmMedico) {
+        return ConsultaRepository.listarPorMedicoComProntuario(crmMedico);
+    }
 
     
     public Consulta buscarPorCodigo(int codigo) {
