@@ -96,7 +96,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <%@include file="medico/CadastroMedico.jsp" %>
+                    <%@include file="/WEB-INF/jsps/medico/CadastroMedico.jsp" %>
                 </div>
 
             </div>

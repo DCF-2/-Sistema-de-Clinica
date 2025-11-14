@@ -56,21 +56,24 @@
     <p>Selecione o módulo que deseja gerenciar:</p>
 
     <nav>
-        <ul>
-            <li>
-                <a href="Paciente">Gerenciar Pacientes</a>
-            </li>
-            <li>
-                <a href="Medico">Gerenciar Médicos</a>
-            </li>
-            <li>
-                <a href="Medicamento">Gerenciar Medicamentos</a>
-            </li>
-            <li>
-                <a href="Indicador">Gerenciar Indicadores de Exame</a>
-            </li>
-        </ul>
-    </nav>
-
+    <ul>
+        <li>
+            <a href="Medico?op=listar">Gerenciar Médicos (CRUD)</a>
+        </li>
+        <li>
+            <a href="Paciente">Gerenciar Pacientes</a>
+        </li>
+        <li>
+            <a href="Medicamento">Gerenciar Medicamentos</a>
+        </li>
+        <li>
+            <a href="Indicador">Gerenciar Indicadores de Exame</a>
+        </li>
+        <hr>
+        <li>
+            <a href="LoginMedico.jsp" style="background-color: #28a745;">Área do Médico (Login)</a>
+        </li>
+    </ul>
+</nav>
 </body>
 </html>

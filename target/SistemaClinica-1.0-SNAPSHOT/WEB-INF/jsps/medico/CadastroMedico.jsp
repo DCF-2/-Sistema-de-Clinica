@@ -34,6 +34,11 @@
             Nome: <input type="text" name="nome" value="${(requestScope.medico ne null)?requestScope.medico.nome:''}"/><br/>
             Especialidade: <input type="text" name="especialidade" value="${(requestScope.medico ne null)?requestScope.medico.especialidade:''}" /><br/>
             Contato: <input type = "text" name="contato" value="${(requestScope.medico ne null)?requestScope.medico.contato:''}"/><br/>
+            <%-- SÓ PEDE SENHA SE FOR CADASTRO NOVO --%>
+            <c:if test="${requestScope.medico eq null}">
+                 Senha: <input type="password" name="senha" required/><br/>
+                 Confirmação: <input type="password" name="confirm" required/><br/>
+            </c:if>
             <button class="btn btn-primary">${(requestScope.medico ne null)?'alterar':'cadastrar'}</button>
         </form>
     </body>
