@@ -20,6 +20,16 @@ public class MedicoRepository {
          medicos = new ArrayList<>();
     }
     
+     public static Medico login(String crmLogin, String senha){ // Mudei o nome da variavel para ficar claro
+    for(Medico m: medicos){
+        // Comparar CRM em vez de Nome garante unicidade
+        if(m.getCrm().equals(crmLogin) && m.getSenha().equals(senha)){
+            return m;
+        }
+    }
+    return null;
+}
+    
     public static void inserir(Medico m){
         MedicoRepository.medicos.add(m);
     }
@@ -63,5 +73,16 @@ public class MedicoRepository {
     
     public static List<Medico> lerTudo(){
         return medicos;
+    }
+    
+     public static void alterarSenha(String crm, String senha){
+        
+        for(Medico mAux: medicos){
+            if(mAux.getCrm().equals(crm)){
+                mAux.setSenha(senha);
+                return;
+            }
+        }
+        
     }
 }
