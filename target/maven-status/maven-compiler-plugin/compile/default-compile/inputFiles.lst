@@ -1,3 +1,4 @@
+C:\Users\davic\Desktop\SistemaClinica\src\main\java\com\web3\clinica\sistemaclinica\controllers\servlets\ConsultaServlet.java
 C:\Users\davic\Desktop\SistemaClinica\src\main\java\com\web3\clinica\sistemaclinica\controllers\servlets\IndicadorExameServlet.java
 C:\Users\davic\Desktop\SistemaClinica\src\main\java\com\web3\clinica\sistemaclinica\controllers\servlets\LoginMedicoServlet.java
 C:\Users\davic\Desktop\SistemaClinica\src\main\java\com\web3\clinica\sistemaclinica\controllers\servlets\MedicamentoServlet.java
@@ -14,10 +15,12 @@ C:\Users\davic\Desktop\SistemaClinica\src\main\java\com\web3\clinica\sistemaclin
 C:\Users\davic\Desktop\SistemaClinica\src\main\java\com\web3\clinica\sistemaclinica\model\entities\Paciente.java
 C:\Users\davic\Desktop\SistemaClinica\src\main\java\com\web3\clinica\sistemaclinica\model\entities\Prontuario.java
 C:\Users\davic\Desktop\SistemaClinica\src\main\java\com\web3\clinica\sistemaclinica\model\entities\Receituario.java
+C:\Users\davic\Desktop\SistemaClinica\src\main\java\com\web3\clinica\sistemaclinica\model\negocios\ConsultaNegocio.java
 C:\Users\davic\Desktop\SistemaClinica\src\main\java\com\web3\clinica\sistemaclinica\model\negocios\IndicadorExameNegocio.java
 C:\Users\davic\Desktop\SistemaClinica\src\main\java\com\web3\clinica\sistemaclinica\model\negocios\MedicamentoNegocio.java
 C:\Users\davic\Desktop\SistemaClinica\src\main\java\com\web3\clinica\sistemaclinica\model\negocios\MedicoNegocio.java
 C:\Users\davic\Desktop\SistemaClinica\src\main\java\com\web3\clinica\sistemaclinica\model\negocios\PacienteNegocio.java
+C:\Users\davic\Desktop\SistemaClinica\src\main\java\com\web3\clinica\sistemaclinica\model\repositorios\ConsultaRepository.java
 C:\Users\davic\Desktop\SistemaClinica\src\main\java\com\web3\clinica\sistemaclinica\model\repositorios\IndicadorExameRepository.java
 C:\Users\davic\Desktop\SistemaClinica\src\main\java\com\web3\clinica\sistemaclinica\model\repositorios\MedicamentoRepository.java
 C:\Users\davic\Desktop\SistemaClinica\src\main\java\com\web3\clinica\sistemaclinica\model\repositorios\MedicoRepository.java

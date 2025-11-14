@@ -19,7 +19,7 @@ import java.io.IOException;
  *
  * @author davic
  */
-@WebServlet(name = "LoginMedicoServlet", urlPatterns = {"/LoginMedicoServlet"})
+@WebServlet(name = "LoginMedicoServlet", urlPatterns = {"/LoginMedico"})
 public class LoginMedicoServlet extends HttpServlet {
 
     

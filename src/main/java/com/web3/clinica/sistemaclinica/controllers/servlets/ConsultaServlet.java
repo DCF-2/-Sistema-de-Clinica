@@ -61,7 +61,7 @@ public class ConsultaServlet extends HttpServlet {
 
             // 3. ENVIAR PARA O JSP
             // (Vamos criar este JSP no próximo passo)
-            request.getRequestDispatcher("/WEB-INF/jsps/medico/ConsultaMedico.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/medico/ConsultaMedico.jsp").forward(request, response);
 
         } catch (ServletException | IOException e) {
             session.setAttribute("msg", "Erro ao carregar dados: " + e.getMessage());

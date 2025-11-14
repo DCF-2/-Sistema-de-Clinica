@@ -3,21 +3,6 @@
     Created on : 14 de nov. de 2025, 15:12:57
     Author     : davic
 --%>
-
-Perfeito. menuMedico.jsp concluído.
-
-Agora, vamos criar o ficheiro principal do dashboard (o ConsultaMedico.jsp). Este é o ficheiro que o seu ConsultaServlet está a tentar carregar. Ele vai incluir o menu que acabou de criar e exibir as listas de consultas e pacientes que o servlet está a enviar.
-
-Crie o novo ficheiro:
-
-src/main/webapp/WEB-INF/jsps/medico/ConsultaMedico.jsp
-
-Java
-
-<%--
-    Document   : ConsultaMedico.jsp (O Dashboard do Médico)
---%>
-
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

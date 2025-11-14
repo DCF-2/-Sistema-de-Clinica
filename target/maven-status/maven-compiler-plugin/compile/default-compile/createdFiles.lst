@@ -18,7 +18,10 @@ com\web3\clinica\sistemaclinica\model\entities\Prontuario.class
 com\web3\clinica\sistemaclinica\model\negocios\IndicadorExameNegocio.class
 com\web3\clinica\sistemaclinica\resources\JakartaEE11Resource.class
 com\web3\clinica\sistemaclinica\model\entities\Paciente.class
+com\web3\clinica\sistemaclinica\model\negocios\ConsultaNegocio.class
+com\web3\clinica\sistemaclinica\model\repositorios\ConsultaRepository.class
 com\web3\clinica\sistemaclinica\model\negocios\PacienteNegocio.class
+com\web3\clinica\sistemaclinica\controllers\servlets\ConsultaServlet.class
 com\web3\clinica\sistemaclinica\controllers\servlets\IndicadorExameServlet.class
 com\web3\clinica\sistemaclinica\controllers\servlets\LoginMedicoServlet.class
 com\web3\clinica\sistemaclinica\model\repositorios\PacienteRepository.class
